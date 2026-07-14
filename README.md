@@ -344,3 +344,7 @@ The UART design is verified through the following sequence:
 
 10. **Simulation Completion**
     - After all transactions are verified, the simulation ends and waveform analysis can be performed.
+
+### UART Waveform
+
+![Waveform](images/uart_waveform.png)
