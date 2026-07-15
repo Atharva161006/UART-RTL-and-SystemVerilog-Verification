@@ -347,4 +347,5 @@ The UART design is verified through the following sequence:
 
 ### UART Waveform
 
-![Waveform]([images/uart_waveform.png](https://github.com/Atharva161006/UART-RTL-and-SystemVerilog-Verification/blob/main/uart_waveform.png?raw=true))
+<img width="773" height="454" alt="uart_waveform" src="https://github.com/user-attachments/assets/a8abed8e-92ab-40d3-8f0c-000c4754a8a9" />
+
