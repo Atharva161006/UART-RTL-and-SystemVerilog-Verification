@@ -14,8 +14,6 @@ The UART supports serial transmission and reception using configurable baud rate
 - [Simulation Flow](#simulation-flow)
 - [Simulation Results](#simulation-results)
 - [How to Run](#how-to-run)
-- [Tools Used](#tools-used)
-- [Skills Demonstrated](#skills-demonstrated)
 - [Future Improvements](#future-improvements)
 
 ## Overview
@@ -345,7 +343,51 @@ The UART design is verified through the following sequence:
 10. **Simulation Completion**
     - After all transactions are verified, the simulation ends and waveform analysis can be performed.
 
+## Simulation Results
+
+The UART design was simulated using **Xilinx Vivado Simulator**. The waveform below demonstrates successful UART transmission and reception through loopback communication.
+
 ### UART Waveform
 
 <img width="773" height="454" alt="uart_waveform" src="https://github.com/user-attachments/assets/a8abed8e-92ab-40d3-8f0c-000c4754a8a9" />
 
+
+### Observations
+
+- Reset initializes the UART modules correctly.
+- The Baud Rate Generator produces `tx_enb` and `rx_enb` enable pulses.
+- `tx_start` initiates UART transmission.
+- The transmitter serializes the input byte into a UART frame.
+- The receiver samples the incoming serial data and reconstructs the original byte.
+- `busy` remains asserted during transmission.
+- `done` is asserted after successful completion of transmission/reception.
+- The received data (`data_out`) matches the transmitted data (`data_in`), confirming correct UART functionality.
+
+## How to Run
+
+1. Clone or download this repository.
+2. Open the project in **Xilinx Vivado**.
+3. Add all design and testbench source files to the project.
+4. Set the testbench (`tb.sv`) as the top simulation module.
+5. Run **Behavioral Simulation**.
+6. Observe the waveform and verify successful UART transmission and reception.
+
+## Future Improvements
+
+- Add configurable baud rate support using programmable baud rate registers.
+- Implement parity bit generation and checking (Even/Odd parity).
+- Support multiple stop bit configurations (1 or 2 stop bits).
+- Add configurable data widths (5, 6, 7, 8, or 9 bits).
+- Integrate TX and RX FIFOs for buffered data transfer.
+- Enhance the verification environment with constrained random testing.
+- Add functional coverage to measure verification completeness.
+- Implement SystemVerilog Assertions (SVA) for protocol checking.
+- Migrate the verification environment to a UVM-based testbench.
+
+## Author
+
+**Atharva Bagora**
+
+- Electronics and Communication Engineering (ECE) Student
+- MANIT Bhopal
+- Interested in RTL Design and Design Verification
